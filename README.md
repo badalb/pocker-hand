@@ -16,7 +16,7 @@ We can form a Hand which has a list of Cards drwaing cards from Deck (Random car
 Pocker hand type Evaluator has a chain of different type of Hand Evaluator like FLUSH, FOUR of a KIND, PAIR etc.
 We can add a new Evalutor implementing Evalutor interface.
 
-public class <New_Evalutor> implements Evaluator {
+public class EvaluatorImpl implements Evaluator {
 
 	private Evaluator executor;
 
@@ -36,8 +36,13 @@ public class <New_Evalutor> implements Evaluator {
 	}
 }
 
-A new Evalutor can be appended to the chain using chain implementations add/remove method.
+A new Evalutor can be appended/removed to the chain using chain implementations add/remove method.
 
-public void add(Evaluator evaluator);
+public interface EvaluatorChain {
 
-public void remove(Evaluator evaluator);
+	public void add(Evaluator evaluator);
+
+	public void remove(Evaluator evaluator);
+
+	public Category execute(int[] createRankMatrix, int[] createSuitMatrix);
+}
