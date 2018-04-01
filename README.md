@@ -39,7 +39,7 @@ public class EvaluatorImpl implements Evaluator {
 A new Evalutor can be appended/removed to the chain using chain implementations add/remove method.
 To add a new Evaluator -
 
-hand.getEvaluators().add(new Evaluator() {
+	hand.getEvaluators().add(new Evaluator() {
 			
 			@Override
 			public void setNextEvaluator(Evaluator evaluate) {
@@ -53,3 +53,11 @@ hand.getEvaluators().add(new Evaluator() {
 				return null;
 			}
 		});
+
+
+# Execution Complexity
+
+Evalutors uses two 1-D array, Suit Matrix and Rank Matrix. Suit Matrix holds count of cards in hand for each suit and Rank Matrix count of cards in hand for each rank.
+So for  { "HA", "HK", "H2", "H4", "HT" } Suit Matrix is [0,5,0,0] nad RankMatrix is [1,0,1,0,0,0,0,0,1,0,0,1,1]
+So for every hand Space Complexity is of O(4 ~ n) and O(13 ~ n) 
+All the algorithms run on Suit or Rank Matrix in single iteration and mostly of O(4/13 ~ n)
