@@ -37,12 +37,19 @@ public class EvaluatorImpl implements Evaluator {
 }
 
 A new Evalutor can be appended/removed to the chain using chain implementations add/remove method.
+To add a new Evaluator -
 
-public interface EvaluatorChain {
-
-	public void add(Evaluator evaluator);
-
-	public void remove(Evaluator evaluator);
-
-	public Category execute(int[] createRankMatrix, int[] createSuitMatrix);
-}
+hand.getEvaluators().add(new Evaluator() {
+			
+			@Override
+			public void setNextEvaluator(Evaluator evaluate) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public Category evaluate(int[] rankMatrix, int[] suitMatrix) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		});
