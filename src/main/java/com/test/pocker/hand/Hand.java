@@ -28,7 +28,11 @@ public class Hand {
 		this.cards = cardList;
 		chain = new EvaluatorChainImpl();
 	}
-
+	
+	public EvaluatorChain getEvaluators(){
+		return this.chain;
+	}
+	
 	public void printCards() {
 		cards.forEach(card -> {
 			System.out.println("Suite:" + card.getSuit() + " Rank:" + card.getRank());
